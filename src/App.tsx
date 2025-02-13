@@ -1,5 +1,5 @@
-import  { useState, useEffect } from 'react';
-import { Heart, Mail, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Heart, Mail, Sparkles, Music } from 'lucide-react';
 
 function App() {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
@@ -29,6 +29,12 @@ function App() {
     }
   }, [yesPressed]);
 
+  useEffect(() => {
+    if (isEnvelopeOpen) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [isEnvelopeOpen, yesPressed]);
+
   function getNoButtonText() {
     return phrases[Math.min(noCount, phrases.length - 1)];
   }
@@ -57,7 +63,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-100 via-pink-200 to-pink-300 bg-hearts relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-pink-100 via-pink-200 to-pink-300 bg-hearts relative overflow-hidden py-8">
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <Heart
@@ -74,7 +80,7 @@ function App() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 h-screen flex flex-col items-center justify-center relative">
+      <div className="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center relative">
         {!isEnvelopeOpen ? (
           <div 
             className="envelope cursor-pointer transform hover:scale-105 transition-transform duration-500"
