@@ -126,7 +126,7 @@ function App() {
               <>
                 <div className="text-center mb-12">
                   <img
-                    src="/media/fotojaz.jpg"
+                    src="/fotojaz.jpg"
                     alt="Corazón"
                     className="w-40 h-40 mx-auto mb-8 rounded-full shadow-xl object-cover ring-4 ring-pink-200 hover:ring-pink-300 transition-all duration-300"
                   />
